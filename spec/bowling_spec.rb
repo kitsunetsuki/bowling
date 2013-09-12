@@ -11,18 +11,21 @@ describe BowlingGame do
   end  
   
   describe '#score' do
+    
     context ' when only gutter balls are thrown' do
       it 'scores the game as 0' do
         20.times{game.roll(0)}
         expect(game.score).to eq(0)
       end
     end 
+
     context 'when one pin is knocked down on each roll' do
       it 'scores the game as 20' do
         20.times{game.roll(1)}
         expect(game.score).to eq(20)
       end  
     end
+
     context 'when a spare is thrown' do
       it 'records the frame score as 10 plus number of pins knocked down in the next roll' do
         3.times{game.roll(5)}
@@ -31,6 +34,7 @@ describe BowlingGame do
         expect(game.score).to eq(20)
       end
     end
+
     context'when a strike is thrown' do
       it 'records the frome score as 10 plus the total number of pins knocked down in the next two frames' do
         game.roll(10)
